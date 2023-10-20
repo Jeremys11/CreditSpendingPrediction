@@ -40,5 +40,3 @@ def main():
     X_3 = pd.DataFrame(X_2,columns=['city','amount'])
 
     GNB_model(X_3,Y)
-
-main()
