@@ -21,6 +21,15 @@ def main():
     #Using best features for model
     X_3 = pd.DataFrame(X_2,columns=['City','Amount'])
 
+    #Gender prediction based on city and amount
+    GNB_model(X_3,Y)
+
+    #Card prediction based on city and amounts
+    Y = pd.DataFrame(df, columns=['CardType'])
+    GNB_model(X_3,Y)
+
+    #Expense prediction based on city and amounts
+    Y = pd.DataFrame(df, columns=['ExpType'])
     GNB_model(X_3,Y)
 
 main()

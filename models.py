@@ -4,7 +4,10 @@ from sklearn import metrics
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 import pandas as pd
-import torch
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 def find_best_features(X,Y):
     #Finding the best features
@@ -38,3 +41,18 @@ def GNB_model(X,Y):
     y_pred = model.predict(X_test)
 
     print('GNB CL Report: ',metrics.classification_report(y_test, y_pred, zero_division=1))
+
+    # Compute confusion matrix
+    cm = confusion_matrix(y_test, y_pred)
+    print('Confusion Matrix: \n', cm)
+
+    # Define the labels
+    labels = Y.iloc[:, 0].unique()
+
+    # Create a heatmap
+    sns.heatmap(cm, annot=True, fmt='d', xticklabels=labels, yticklabels=labels)
+    plt.xlabel('Predicted')
+    plt.ylabel('True')
+    plt.title('Confusion Matrix')
+    plt.savefig('images/confusion_matrix/'+str(Y.head())+'.png')
+    plt.close()
