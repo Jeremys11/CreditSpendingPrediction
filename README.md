@@ -1,4 +1,4 @@
-# Financial Data Gender Classifier
+# Predicting Credit Card Spedning Based on Demographic Information
  Service Oriented Computing + Machine Learning Practice
 
  Machine Learning Models defined in models.py
